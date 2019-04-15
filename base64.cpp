@@ -42,6 +42,7 @@ std::string Base64::decode(const std::string &input)
     std::string out;
     size_t pos = 0;
     while (pos < input.size()) {
+        chunk = { 0, 0, 0, 0 };
         for (size_t i = 0; i < 4 && pos < input.size(); i++, pos++) {
             // lets just skip incorrect chars
             if (input[pos] >= sizeof(b64revdict) || !b64revdict[input[pos]]) {
